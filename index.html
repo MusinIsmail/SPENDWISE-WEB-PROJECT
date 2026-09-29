@@ -6,26 +6,91 @@
     </head>
 <body>
     <div class="heading">
-    <h1 id="head">My Budget Tracker</h1>
-    <p>Track your income and expenses in one place.</p>
+        <!-- Logo added near the main heading -->
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="SpendWise Logo" width="60">
+        <h1 id="head">My Budget Tracker</h1>
+        <p>Track your income and expenses in one place.</p>
     </div>
     
     <section class="add-expense">
         <h2>Add Expense</h2>
-        <label>The Expense Name</label>
-        <input type="text" placeholder="Enter your name">
+        
+        <!-- Interactive collapsible section -->
+        <details class="instructions">
+            <summary>How to use this tracker</summary>
+            <p>Type in the name, amount, and category of your purchase in the form below, then click "Add Expense" to record it.</p>
+        </details>
 
-        <label>The Ammount</label>
-        <input type="text" placeholder="Enter the amount">
+        <form id="expense-form">
+            <label for="expense-name">The Expense Name</label>
+            <input type="text" id="expense-name" placeholder="Enter expense name">
 
-        <label>The Category</label>
-        <input type="text" placeholder="Enter the category">
+            <label for="expense-amount">The Amount</label>
+            <input type="text" id="expense-amount" placeholder="Enter the amount">
+
+            <label for="expense-category">The Category</label>
+            <select id="expense-category">
+                <option value="food">Food</option>
+                <option value="transport">Transport</option>
+                <option value="rent">Rent</option>
+                <option value="entertainment">Entertainment</option>
+                <option value="other">Other</option>
+            </select>
+
+            <button type="button" id="add-btn">Add Expense</button>
+        </form>
     </section>
     
     <section class="your-expense">
         <h2>Your Expenses</h2>
-        <label>Your Expenses</label>
-        <input type="text" placeholder="No Expenses yet">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Amount</th>
+                    <th>Category</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Groceries</td>
+                    <td>$45.00</td>
+                    <td>Food</td>
+                    <td>2026-09-21</td>
+                </tr>
+                <tr>
+                    <td>Internet Bill</td>
+                    <td>$60.00</td>
+                    <td>Utilities</td>
+                    <td>2026-09-22</td>
+                </tr>
+                <tr>
+                    <td>Bus Ticket</td>
+                    <td>$15.00</td>
+                    <td>Transport</td>
+                    <td>2026-09-24</td>
+                </tr>
+                <tr>
+                    <td>Lunch</td>
+                    <td>$12.50</td>
+                    <td>Food</td>
+                    <td>2026-09-25</td>
+                </tr>
+                <tr>
+                    <td>Notebook</td>
+                    <td>$5.00</td>
+                    <td>Education</td>
+                    <td>2026-09-28</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- New embedded video section -->
+    <section class="budget-video">
+        <h2>Budgeting Tips for Beginners</h2>
+        <iframe width="315" height="576" src="https://www.youtube.com/embed/DobwUfmL-74" title="How to create a monthly budget quickly" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </section>
 </body>
 </html>
