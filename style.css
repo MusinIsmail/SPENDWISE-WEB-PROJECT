@@ -1,121 +1,228 @@
-body {
-background-color: aqua;
-font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+/* Universal Box Model Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
 }
 
-.heading{
-background-color: brown;
-padding: 10px; 
+/* Color Palette & Typography Variables */
+:root {
+    --primary-color: #1E3A8A;
+    --secondary-color: #2563EB;
+    --secondary-hover: #1D4ED8;
+    --bg-page: #F8FAFC;
+    --bg-card: #FFFFFF;
+    --bg-subtle: #F1F5F9;
+    --text-primary: #0F172A;
+    --text-light: #FFFFFF;
+    --border-color: #CBD5E1;
+    --border-light: #E2E8F0;
+    
+    /* Custom Typography */
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    margin: 0 auto;
+    padding: 30px 20px;                 /* Box Model: Page border spacing */
+    line-height: 1.5;
+    max-width: 900px;
+}
+
+/* ==========================================================================
+   CSS BOX MODEL: DISTINCT VISUAL CARDS
+   (Page Heading, Add Expense Form, & Expense Table Cards)
+   ========================================================================== */
+
+/* 1. Page Heading Card */
+.heading {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    /* Box Model Properties */
+    padding: 28px 24px;                 /* Padding: Internal breathing space */
+    margin-bottom: 24px;                /* Margin: Separation from section below */
+    border: 1px solid var(--primary-color);/* Border: Outer structural boundary */
+    border-radius: 12px;                /* Border-radius: Modern curved corners */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .heading img {
     vertical-align: middle;
-    margin-right: 15px;
+    margin-right: 15px;                 /* Margin: Spacing between logo and heading */
 }
 
-#head{
-    font-size: xx-large;
-    display: inline-block; 
+#head {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    display: inline-block;
     vertical-align: middle;
-    margin: 0;
+    margin: 0;                           /* Margin: Reset default browser spacing */
+    color: var(--text-light);
 }
 
-.add-expense{
-    background-color: aliceblue;
-    font-style: italic;
-    color: blueviolet;
-    padding: 15px; 
+.heading p {
+    margin: 8px 0 0 0;                  /* Margin: Space above tagline */
+    opacity: 0.9;
+    font-weight: 400;
 }
 
+/* 2 & 3. Add Expense Form, Expense Table, & Video Section Cards */
+.add-expense, 
+.your-expense, 
+.budget-video {
+    background-color: var(--bg-card);
+    color: var(--text-primary);
+    /* Box Model Properties */
+    padding: 28px 24px;                 /* Padding: Internal space inside card */
+    margin-bottom: 24px;                /* Margin: Clear separation between cards */
+    border: 1px solid var(--border-light);/* Border: Defined card edge */
+    border-radius: 12px;                /* Border-radius: Softer visual appearance */
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-top: 0;                      /* Margin: Flush with top card padding */
+    margin-bottom: 16px;                /* Margin: Spacing below section heading */
+}
+
+/* Collapsible Box Model Styling */
 .instructions {
-    margin-bottom: 15px;
+    margin-bottom: 20px;                /* Margin: Spacing above form */
+    padding: 12px 16px;                 /* Padding: Inner container spacing */
+    background-color: var(--bg-subtle);
+    border: 1px solid var(--border-light);/* Border: Inner element definition */
+    border-radius: 8px;                 /* Border-radius: Soft inner enclosure */
     font-size: 15px;
     cursor: pointer;
+    color: var(--secondary-color);
+    font-weight: 600;
 }
 
-/* This is a Descendant Selector (already existed in your code) */
 .instructions p {
-    margin-top: 5px;
-    color: #333;
+    margin-top: 8px;                    /* Margin: Top space within details text */
+    margin-bottom: 0;
+    color: var(--text-primary);
     font-style: normal;
+    font-weight: 400;
 }
 
-/* --- Form Upgrades & Advanced Selectors --- */
+/* Form Controls Box Model */
 form {
     display: flex;
     flex-direction: column;
-    gap: 8px; 
-    max-width: 300px;
+    gap: 10px;                           /* Box Model Gap: Equal separation */
+    max-width: 360px;
 }
 
-/* 1. Direct Child Selector: Targets labels that are immediately inside the form */
 #expense-form > label {
-    font-weight: bold;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text-primary);
+    margin-top: 4px;                    /* Margin: Separation from previous control */
 }
 
 input, select {
-    padding: 6px;
+    padding: 10px 14px;                 /* Padding: Comfort inside input fields */
     font-size: 14px;
+    font-family: var(--font-body);
+    border: 1px solid var(--border-color);/* Border: Clear input boundary */
+    border-radius: 6px;                 /* Border-radius: Subtle input rounding */
+    background-color: var(--bg-card);
+    color: var(--text-primary);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* 2. Focus State: Changes the appearance of inputs/selects when the user clicks on them */
 input:focus, select:focus {
-    outline: 2px solid blueviolet;
-    background-color: #f4f9ff;
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
 button {
-    margin-top: 10px;
-    padding: 8px;
-    background-color: brown;
-    color: white;
+    margin-top: 14px;                   /* Margin: Separation from last field */
+    padding: 12px 18px;                 /* Padding: Accessible button touch area */
+    background-color: var(--secondary-color);
+    color: var(--text-light);
     border: none;
-    cursor: pointer; 
-    font-weight: bold;
+    border-radius: 6px;                 /* Border-radius: Rounded button corners */
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 15px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
 button:hover {
-    background-color: darkred;
+    background-color: var(--secondary-hover);
 }
 
-/* --- Table Styles --- */
+button:active {
+    transform: translateY(1px);
+}
+
+/* Table Box Model */
 table {
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
     width: 100%;
-    background-color: white; 
-    margin-top: 15px;
+    background-color: var(--bg-card);
+    margin-top: 16px;                   /* Margin: Spacing above table */
+    font-family: var(--font-body);
+    border: 1px solid var(--border-light);/* Border: Enclosing table frame */
+    border-radius: 8px;                 /* Border-radius: Rounded outer table card */
+    overflow: hidden;
 }
 
 th, td {
-    border: 1px solid black;
-    padding: 10px;
+    padding: 14px 18px;                 /* Padding: Roomy table cell layout */
     text-align: left;
+    font-size: 14px;
 }
 
 thead th {
-    background-color: #ffb3b3; 
-    color: black;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid var(--border-light);/* Border: Header boundary */
 }
 
-/* This is a Positional Pseudo-class (already existed in your code) */
-tr:nth-child(even) {
-    background-color: #f2f2f2; 
+tbody tr {
+    transition: background-color 0.15s ease;
+}
+
+tbody tr:nth-child(even) {
+    background-color: var(--bg-subtle);
 }
 
 tbody tr:hover {
-    background-color: #d8eafa; 
+    background-color: #E2E8F0;
 }
 
-/* 3. Negation Pseudo-class: Adds a bottom border to all rows EXCEPT the last one */
-tbody tr:not(:last-child) {
-    border-bottom: 2px solid #a9a9a9;
+tbody td {
+    border-bottom: 1px solid var(--border-light);/* Border: Horizontal cell dividers */
 }
 
-/* --- Video Section Styles --- */
+tbody tr:last-child td {
+    border-bottom: none;                /* Border: Removes double bottom border */
+}
+
+/* Video Section Box Model */
 .budget-video {
-    background-color: aliceblue;
-    padding: 20px;
-    margin-top: 15px;
     text-align: center;
-    color: blueviolet;
+}
+
+.budget-video iframe {
+    border-radius: 8px;                 /* Border-radius: Soft video container */
+    border: 1px solid var(--border-light);/* Border: Clean media outline */
+    margin-top: 10px;                   /* Margin: Spacing above iframe */
+    max-width: 100%;
 }
